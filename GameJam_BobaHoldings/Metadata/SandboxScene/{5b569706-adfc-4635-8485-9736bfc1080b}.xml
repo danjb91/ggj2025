@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="SandboxScene" id="{5b569706-adfc-4635-8485-9736bfc1080b}">
+		<property name="name">
+			<value>BOBA_</value>
+		</property>
+		<relationship name="folder">
+			<destination>{df6d5539-732a-42ea-b607-b0b9183ffdcb}</destination>
+		</relationship>
+		<relationship name="markerTracks">
+			<destination>{e6955560-2ef2-477b-be9d-d007ee4c2dcb}</destination>
+		</relationship>
+		<relationship name="timeline">
+			<destination>{2d198b1c-9ca2-43a0-8658-0b74ca7e97ca}</destination>
+		</relationship>
+	</object>
+	<object class="MarkerTrack" id="{e6955560-2ef2-477b-be9d-d007ee4c2dcb}" />
+	<object class="Timeline" id="{2d198b1c-9ca2-43a0-8658-0b74ca7e97ca}" />
+</objects>

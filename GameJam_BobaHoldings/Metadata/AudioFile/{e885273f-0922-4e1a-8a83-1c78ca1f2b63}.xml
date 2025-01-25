@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{e885273f-0922-4e1a-8a83-1c78ca1f2b63}">
+		<property name="assetPath">
+			<value>SFX/sfx_Stirring/sfx_stir_bobaBubbles04.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.95999999999999996</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{43d5924c-b945-4696-894b-4cf956b99577}</destination>
+		</relationship>
+	</object>
+</objects>
