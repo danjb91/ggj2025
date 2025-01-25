@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class StrawController : MonoBehaviour
 {
+    [SerializeField] private Transform strawLimiter;
     [SerializeField] private float strawMoveSpeed = 1.0f;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Vector3 movement;
@@ -11,12 +12,15 @@ public class StrawController : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
+        strawLimiter = GameObject.FindGameObjectWithTag("StrawYLimit").transform;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(connectToWasd)
+        Vector3 resultingMovement = Vector3.zero;
+
+        if (connectToWasd)
         {
             movement.z = -Input.GetAxis("Horizontal");
             movement.y = Input.GetAxis("Vertical");
@@ -24,7 +28,19 @@ public class StrawController : MonoBehaviour
 
             Debug.Log("move " + movement);
 
-            rb.linearVelocity = movement * strawMoveSpeed;
+            resultingMovement = movement * strawMoveSpeed; ;
+        
+
+            if(movement.y < 0.0f && transform.position.y < strawLimiter.transform.position.y)
+            {
+                resultingMovement.y = 0.0f;
+                transform.position = new Vector3(transform.position.x, strawLimiter.transform.position.y, transform.position.z);
+            }
+
+
+       
         }
+
+        rb.linearVelocity = resultingMovement;
     }
 }
