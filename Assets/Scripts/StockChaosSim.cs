@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public enum EventType
@@ -9,12 +10,19 @@ public enum EventType
     CONTROVERSY
 }
 
+public class StockEvent
+{
+    public StockInstance Stock {get;set;}
+    public EventType EventType {get;set;}
+}
+
 public class StockChaosSim : MonoBehaviour
 {
     StockSimulation simulation;
     double nextUpdate = 0;
     public double minRefreshRate = 5.0;
     public double refreshRate = 8.0;
+    public event EventHandler<StockEvent> OnStockEvent;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -59,11 +67,19 @@ public class StockChaosSim : MonoBehaviour
                 }
             case EventType.CONTROVERSY:
                 {
-                    stock.Volatility *= Random.Range(5f, 10f);
+                    stock.Volatility *= UnityEngine.Random.Range(5f, 10f);
                     Debug.Log($"{stock.Name} is now controversial");
                     break;
                 }
         }
+
+        var evt = new StockEvent
+        {
+            Stock = stock,
+            EventType = eventType
+        };
+
+        OnStockEvent?.Invoke(this, evt);
     }
 
     // Update is called once per frame
