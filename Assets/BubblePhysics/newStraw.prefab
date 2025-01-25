@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4482661733215803518}
   - component: {fileID: 8867080628570288561}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Suckerr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,6 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   succForce: 100
+  succButton: succ
 --- !u!1 &3520628089719521426
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,8 +841,8 @@ HingeJoint:
   m_ExtendedLimits: 0
   m_UseAcceleration: 0
   m_Limits:
-    min: -61.09
-    max: 52.1
+    min: -35
+    max: 35
     bounciness: 0
     bounceMinVelocity: 0.2
     contactDistance: 0
@@ -863,6 +864,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186c7fd66696a984592d962d89b63301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  horizontalAxis: Horizontal
+  verticalAxis: Vertical
   strawLimiter: {x: 0, y: 0, z: 0}
   lowerLeft: {x: 0, y: 0, z: 0}
   upperRight: {x: 0, y: 0, z: 0}
