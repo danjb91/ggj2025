@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{b0bebb87-7b6a-44b7-8a55-1f462e743eb4}">
+		<property name="name">
+			<value>MusicSystem_2</value>
+		</property>
+		<relationship name="folder">
+			<destination>{9a000fcd-86a7-48c2-83a3-278ea1cc3a6d}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{4eb24000-9e5c-4674-aa30-201a167e5db8}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{4eb24000-9e5c-4674-aa30-201a167e5db8}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

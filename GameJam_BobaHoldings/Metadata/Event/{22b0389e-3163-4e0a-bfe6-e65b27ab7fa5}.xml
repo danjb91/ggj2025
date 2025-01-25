@@ -5,7 +5,7 @@
 			<value>Start</value>
 		</property>
 		<property name="outputFormat">
-			<value>5</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{a09d3d69-eba0-407a-970d-77ee18557c12}</destination>
@@ -126,7 +126,7 @@
 			<value>46</value>
 		</property>
 		<property name="volume">
-			<value>0.5</value>
+			<value>2.5</value>
 		</property>
 		<property name="polyphony">
 			<value>13</value>
@@ -149,7 +149,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{338dc788-8308-4368-920e-b425f0df5612}">
 		<property name="volume">
-			<value>3.5</value>
+			<value>8.5</value>
 		</property>
 		<property name="name">
 			<value>Bubbles_Random</value>
@@ -174,7 +174,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{0d065b14-33b3-4725-9992-337f3ec05f3f}">
 		<property name="volume">
-			<value>-5</value>
+			<value>-3</value>
 		</property>
 		<property name="name">
 			<value>Ambience</value>
@@ -295,7 +295,11 @@
 			<destination>{73df0c3e-277d-4a52-a90d-37dd3d02d57f}</destination>
 		</relationship>
 	</object>
-	<object class="MixerBusPanner" id="{79bb077e-baab-4be7-a50f-e73bb8a24d71}" />
+	<object class="MixerBusPanner" id="{79bb077e-baab-4be7-a50f-e73bb8a24d71}">
+		<property name="overridingOutputFormat">
+			<value>1</value>
+		</property>
+	</object>
 	<object class="MixerBusEffectChain" id="{a9a0fb24-3adf-45c7-9d38-38d292ef616b}">
 		<relationship name="effects">
 			<destination>{923a6545-4361-43df-903c-5d5a0f91099a}</destination>
@@ -317,7 +321,11 @@
 			<destination>{730bb29f-811d-4a04-ae38-f7a15f5cd2e7}</destination>
 		</relationship>
 	</object>
-	<object class="MixerBusPanner" id="{3c6525cf-fb75-4de4-aa02-656ad8ef1ffd}" />
+	<object class="MixerBusPanner" id="{3c6525cf-fb75-4de4-aa02-656ad8ef1ffd}">
+		<property name="overridingOutputFormat">
+			<value>1</value>
+		</property>
+	</object>
 	<object class="SingleSound" id="{6cab71b9-bb5a-41f5-867f-c726e8e37847}">
 		<relationship name="audioFile">
 			<destination>{dc1a7aad-3136-4bad-bf3e-aeb2a4d6f5a3}</destination>
