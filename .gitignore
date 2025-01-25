@@ -2,6 +2,13 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
+
+undreamai*
+
+/Assets/AI/runtimes/**
+/Assets/AI/runtimes.meta
+/Packages/packages-lock.json
+
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
