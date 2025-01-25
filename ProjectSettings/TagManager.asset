@@ -5,9 +5,6 @@ TagManager:
   serializedVersion: 3
   tags:
   - StrawYLimit
-  - StrawYLimitUp
-  - StrawXLimitLeft
-  - StrawXLimitRight
   layers:
   - Default
   - TransparentFX

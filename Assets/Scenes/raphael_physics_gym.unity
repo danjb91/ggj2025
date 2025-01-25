@@ -2440,7 +2440,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4059763748667157784, guid: 34c1d426729afc640a1f2c6da797cec3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 74.1
+      value: -19.9
       objectReference: {fileID: 0}
     - target: {fileID: 4059763748667157784, guid: 34c1d426729afc640a1f2c6da797cec3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2535,7 +2535,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: PhysicsLimit
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8642892742643102035, guid: f05d7342de4fe674886ac9726084e555, type: 3}
+    - {fileID: 1220130842125636850, guid: f05d7342de4fe674886ac9726084e555, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
