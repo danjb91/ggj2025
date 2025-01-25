@@ -3,6 +3,8 @@ using TMPro;
 using UnityEngine.UI;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.Mathematics;
 
 public struct StockTicker
 {
@@ -17,11 +19,11 @@ public class StockSimulation : MonoBehaviour
 {
     public Stock[] stocks =
     {
-        new Stock { name = "AAPL", price = 150.0f, upperBound = 4.0f, lowerBound = -2.0f },
-        new Stock { name = "GOOGL", price = 250.0f, upperBound = 5.0f, lowerBound = -3.0f },
-        new Stock { name = "AMZN", price = 350.0f, upperBound = 3.0f, lowerBound = -3.0f },
-        new Stock { name = "MSFT", price = 30.0f, upperBound = 4.0f, lowerBound = -2.0f },
-        new Stock { name = "TSLA", price = 70.0f, upperBound = 3.0f, lowerBound = -10.0f }
+        new Stock { name = "AAPL", price = 150.0f, upperBound = 4.0f, lowerBound = -1.0f, totalShares = 20, volatility = 1.0f },
+        new Stock { name = "GOOGL", price = 250.0f, upperBound = 5.0f, lowerBound = -1.0f, totalShares = 20, volatility = 1.0f },
+        new Stock { name = "AMZN", price = 350.0f, upperBound = 3.0f, lowerBound = -1.0f, totalShares = 20, volatility = 1.0f },
+        new Stock { name = "MSFT", price = 30.0f, upperBound = 4.0f, lowerBound = -1.0f, totalShares = 20, volatility = 1.0f },
+        new Stock { name = "TSLA", price = 70.0f, upperBound = 3.0f, lowerBound = -1.0f, totalShares = 20, volatility = 1.0f }
     };
     public Canvas canvas;
     public GameObject stockPanel;
@@ -55,11 +57,42 @@ public class StockSimulation : MonoBehaviour
         }
     }
 
+    public void SetStockVolatiliy(string stock, float upperBound, float lowerBound)
+    {
+        stocks[Array.FindIndex(stocks, s => s.name == stock)].upperBound = upperBound;
+        stocks[Array.FindIndex(stocks, s => s.name == stock)].lowerBound = lowerBound;
+    }
+
+    public void SetStockPrice(string stock, float price)
+    {
+        if (price < 0)
+        {
+            price = 0;
+        }
+        stocks[Array.FindIndex(stocks, s => s.name == stock)].price = price;
+    }
+
+    public Stock GetStock(string stock)
+    {
+        return stocks[Array.FindIndex(stocks, s => s.name == stock)];
+    }
+
+    public Stock GetRandomStock()
+    {
+        return stocks[UnityEngine.Random.Range(0, stocks.Length)];
+    }
+
     public void BuyStock(string stock)
     {
-        if (money >= stocks[Array.FindIndex(stocks, s => s.name == stock)].price)
+        var currentStock = GetStock(stock);
+        if (money >= currentStock.price)
         {
-            money -= stocks[Array.FindIndex(stocks, s => s.name == stock)].price;
+            var proportion = (1f / currentStock.totalShares);
+            var bonus = 1 + proportion * (1f + UnityEngine.Random.value * currentStock.volatility);
+            currentStock.price *= bonus;
+            currentStock.upperBound *= 1f - proportion;
+            Debug.Log($"Buy Bonus: {bonus}");
+            money -= currentStock.price;
             if (portfolio.ContainsKey(stock))
             {
                 portfolio[stock]++;
@@ -72,9 +105,15 @@ public class StockSimulation : MonoBehaviour
     }
     public void SellStock(string stock)
     {
+        var currentStock = GetStock(stock);
         if (portfolio.ContainsKey(stock))
         {
-            money += stocks[Array.FindIndex(stocks, s => s.name == stock)].price;
+            money += currentStock.price;
+            var proportion = (1f / currentStock.totalShares);
+            var penalty = 1 - proportion * (1f + UnityEngine.Random.value * currentStock.volatility);
+            currentStock.lowerBound *= 1f + proportion;
+            currentStock.price *= penalty;
+            Debug.Log($"Sell Penalty: {penalty}");
             portfolio[stock]--;
             if (portfolio[stock] == 0)
             {
@@ -83,31 +122,8 @@ public class StockSimulation : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    void UpdateStatusText()
     {
-        if (Time.timeAsDouble - lastUpdate < refreshRate && lastUpdate > 0)
-        {
-            return;
-        }
-
-        lastUpdate = Time.timeAsDouble;
-        foreach (Stock stock in stocks)
-        {
-            stock.price = Math.Max(0f, stock.price + UnityEngine.Random.Range(stock.lowerBound, stock.upperBound));
-            stock.upperBound += UnityEngine.Random.Range(-0.5f, 0.5f);
-            stock.lowerBound += UnityEngine.Random.Range(-0.5f, 0.5f);
-            try
-            {
-                var prefabs = stockPrefabs[stock.name];
-                prefabs.text.text = $"{stock.name}: {stock.price.ToString("0.0")}";
-                prefabs.heldAmount.text = portfolio.ContainsKey(stock.name) ? portfolio[stock.name].ToString() : "0";
-            }
-            catch (KeyNotFoundException)
-            {
-            }
-        }
-
         currentMoney.text = $"Money: {(int)money}";
         double currentPortfolio = 0;
         foreach (var stockInPortfolio in portfolio)
@@ -116,5 +132,34 @@ public class StockSimulation : MonoBehaviour
             currentPortfolio += currentStock.price * (double)stockInPortfolio.Value;
         }
         portfolioValue.text = $"Portfolio Value: {(int)currentPortfolio}";
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        UpdateStatusText();
+        if (Time.timeAsDouble - lastUpdate < refreshRate && lastUpdate > 0)
+        {
+            return;
+        }
+
+        lastUpdate = Time.timeAsDouble;
+        foreach (Stock stock in stocks)
+        {
+            var stockDelta = UnityEngine.Random.Range(stock.lowerBound, stock.upperBound);
+            stock.price = Math.Max(0f, stock.price + stockDelta);
+            stock.upperBound += UnityEngine.Random.Range(-(stock.volatility / 2f), (stock.volatility / 2f));
+            stock.lowerBound += UnityEngine.Random.Range(-(stock.volatility / 2f), (stock.volatility / 2f));
+            stock.volatility = Math.Max(1f, stock.volatility - UnityEngine.Random.value);
+            try
+            {
+                var prefabs = stockPrefabs[stock.name];
+                prefabs.text.text = $"<color=\"{(stockDelta > 0 ? "green" : "red")}\">{stock.name}</color>: {stock.price.ToString("0.0")} ({stockDelta.ToString("0.0")})";
+                prefabs.heldAmount.text = portfolio.ContainsKey(stock.name) ? portfolio[stock.name].ToString() : "0";
+            }
+            catch (KeyNotFoundException)
+            {
+            }
+        }
     }
 }
