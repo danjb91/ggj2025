@@ -168,6 +168,7 @@ public class StockSimulation : MonoBehaviour
 
     private void Start()
     {
+        GameManager.Instance.stockSim = this;
         int toCreate = 5;
         while (toCreate > 0)
         {

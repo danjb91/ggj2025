@@ -19,6 +19,7 @@ public class BobaStockManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        GameManager.Instance.bobaStockManager = this;
         foreach (StockInstance stock in GameManager.Instance.stockSim.CurrentStocks)
         {
             for (int i = 0; i < stock.TotalShares; i+=10)
@@ -64,14 +65,14 @@ public class BobaStockManager : MonoBehaviour
         lastUpdate = Time.time;
         if (bobaStockToSpawn.Count > 0)
         {
-            var top = bobaStockToSpawn.Pop();
+            var stock = bobaStockToSpawn.Pop();
             var randomPos = new Vector3(0f, Random.Range(spawner.bounds.min.y, spawner.bounds.max.y), Random.Range(spawner.bounds.min.z, spawner.bounds.max.z));
             var boba = Instantiate(bobaPrefab, randomPos, Quaternion.identity);
             var bobaEntity = boba.GetComponent<BobaEntity>();
-            bobaEntity.setStock(top.stockName);
-            bobaEntity.setShares(top.shares);
+            bobaEntity.setStock(stock.stockName);
+            bobaEntity.setShares(stock.shares);
             var bobaRenderer = boba.GetComponent<MeshRenderer>();
-            bobaRenderer.material = top.material;
+            bobaRenderer.material = stock.material;
         }
     }
 }
