@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class StrawController : MonoBehaviour
 {
+    [SerializeField] private string horizontalAxis = "Horizontal";
+    [SerializeField] private string verticalAxis = "Vertical";
+
     [SerializeField] private Vector3 strawLimiter;
     [SerializeField] private Vector3 lowerLeft;
     [SerializeField] private Vector3 upperRight;
@@ -35,11 +38,11 @@ public class StrawController : MonoBehaviour
 
         if (connectToWasd)
         {
-            movement.z = Input.GetAxis("Horizontal");
-            movement.y = Input.GetAxis("Vertical");
+            movement.z = Input.GetAxis(horizontalAxis);
+            movement.y = Input.GetAxis(verticalAxis);
             movement.Normalize();
 
-            //Debug.Log("move " + movement);
+            Debug.Log("moveFromInput " + movement);
 
             resultingMovement = movement * strawMoveSpeed; ;
         
