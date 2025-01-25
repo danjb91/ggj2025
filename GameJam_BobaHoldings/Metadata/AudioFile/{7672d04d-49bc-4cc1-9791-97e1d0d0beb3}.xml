@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{7672d04d-49bc-4cc1-9791-97e1d0d0beb3}">
+		<property name="assetPath">
+			<value>SFX/sfx_Stirring/sfx_stirring_01.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>5.6723333333333334</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{43d5924c-b945-4696-894b-4cf956b99577}</destination>
+		</relationship>
+	</object>
+</objects>

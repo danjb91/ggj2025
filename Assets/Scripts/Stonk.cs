@@ -23,5 +23,8 @@ public class Stonk : ScriptableObject
     [field: SerializeField]
     public Color32 Color { get; set; }
 
+    [field: SerializeField]
+    public Material Material { get; set; }
+
     public Stonk() => (Price, UpperBound, LowerBound, TotalShares, Volatility, Color, Delta) = (0f, 0f, 0f, 100, 1f, new Color32(), 0f);
 }
