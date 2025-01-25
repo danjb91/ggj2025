@@ -793,7 +793,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6998848038205323658}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 20
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -863,7 +863,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186c7fd66696a984592d962d89b63301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strawLimiter: {fileID: 0}
+  strawLimiter: {x: 0, y: 0, z: 0}
+  lowerLeft: {x: 0, y: 0, z: 0}
+  upperRight: {x: 0, y: 0, z: 0}
   strawMoveSpeed: 20
   rb: {fileID: 0}
   movement: {x: 0, y: 0, z: 0}

@@ -10,7 +10,7 @@ public class SuccScript : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if(Input.GetButton("succ"))
+        if(other.GetComponent<BobaEntity>() != null && Input.GetButton("succ"))
         {
             Debug.Log("Succing");
             Rigidbody rb = other.GetComponent<Rigidbody>();
