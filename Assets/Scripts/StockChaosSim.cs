@@ -22,6 +22,50 @@ public class StockChaosSim : MonoBehaviour
         simulation = GetComponent<StockSimulation>();
     }
 
+    void TickSimulation()
+    {
+
+        var stock = simulation.GetRandomStock();
+        var eventType = (EventType)UnityEngine.Random.Range(0, 5);
+        switch (eventType)
+        {
+            case EventType.SURGE:
+                {
+                    var bonus = 1f + (UnityEngine.Random.value / 10f);
+                    stock.Price *= bonus;
+                    Debug.Log($"{stock.Name} raced up by {bonus}");
+                    break;
+                }
+            case EventType.CRASH:
+                {
+                    var penalty = 1f - (UnityEngine.Random.value / 10f);
+                    stock.Price *= penalty;
+                    Debug.Log($"{stock.Name} crashed down by {penalty}");
+                    break;
+                }
+            case EventType.DIP:
+                {
+                    var dip = stock.Volatility * UnityEngine.Random.value * 10f;
+                    stock.LowerBound -= dip;
+                    Debug.Log($"{stock.Name} dipped by {dip}");
+                    break;
+                }
+            case EventType.PEAK:
+                {
+                    var peak = stock.Volatility * UnityEngine.Random.value * 10f;
+                    stock.UpperBound += peak;
+                    Debug.Log($"{stock.Name} is peaking by {peak}");
+                    break;
+                }
+            case EventType.CONTROVERSY:
+                {
+                    stock.Volatility *= Random.Range(5f, 10f);
+                    Debug.Log($"{stock.Name} is now controversial");
+                    break;
+                }
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -30,45 +74,7 @@ public class StockChaosSim : MonoBehaviour
             return;
         }
 
-        var stock = simulation.GetRandomStock();
-        var eventType = (EventType)UnityEngine.Random.Range(0, 4);
-        switch (eventType)
-        {
-            case EventType.SURGE:
-            {
-                var bonus = 1f + (UnityEngine.Random.value / 10f);
-                stock.price *= bonus;
-                Debug.Log($"{stock.name} raced up by {bonus}");
-                break;
-            }
-            case EventType.CRASH:
-            {
-                var penalty = 1f - (UnityEngine.Random.value / 10f);
-                stock.price *= penalty;
-                Debug.Log($"{stock.name} crashed down by {penalty}");
-                break;
-            }
-            case EventType.DIP:
-            {
-                var dip = stock.volatility * UnityEngine.Random.value * 10f;
-                stock.lowerBound -= dip;
-                Debug.Log($"{stock.name} dipped by {dip}");
-                break;
-            }
-            case EventType.PEAK:
-            {
-                var peak = stock.volatility * UnityEngine.Random.value * 10f;
-                stock.upperBound += peak;
-                Debug.Log($"{stock.name} is peaking by {peak}");
-                break;
-            }
-            case EventType.CONTROVERSY:
-            {
-                stock.volatility *= Random.Range(5f, 10f);
-                Debug.Log($"{stock.name} is now controversial");
-                break;
-            }
-        }
+        TickSimulation();
 
         nextUpdate = Time.timeAsDouble + refreshRate;
     }
