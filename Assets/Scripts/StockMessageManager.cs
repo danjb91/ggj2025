@@ -16,9 +16,9 @@ public class StockMessageManager : MonoBehaviour
             LoadMessages((EventType)x);
 
         // test a few
-        var msg = RandomMessage(EventType.CRASH);
+        var msg = RandomMessage(EventType.CRASH, "GGX");
         Debug.Log(msg);
-        var msg2 = RandomMessage(EventType.SURGE);
+        var msg2 = RandomMessage(EventType.SURGE, "GGX");
         Debug.Log(msg2);
         
     }
@@ -41,13 +41,13 @@ public class StockMessageManager : MonoBehaviour
         Debug.Log($"{fname}: {messages[type].Count} messages");
     }
 
-    public string? RandomMessage(EventType type)
+    public string? RandomMessage(EventType type, string stockName)
     {
         if (messages[type] == null)
             return null;
 
-        var id = UnityEngine.Random.Range(0, (int)(messages[type].Count - 1));
-        return messages[type][id];
+        var id = UnityEngine.Random.Range(0, (int)messages[type].Count);
+        return messages[type][id].Replace("GGX", stockName);
     }
 
 
