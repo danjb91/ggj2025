@@ -26,7 +26,7 @@ public class StrawController : MonoBehaviour
             movement.y = Input.GetAxis("Vertical");
             movement.Normalize();
 
-            Debug.Log("move " + movement);
+            //Debug.Log("move " + movement);
 
             resultingMovement = movement * strawMoveSpeed; ;
         
