@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - StrawYLimit
+  - Spawner
   layers:
   - Default
   - TransparentFX

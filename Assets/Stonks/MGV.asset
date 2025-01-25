@@ -18,4 +18,5 @@ MonoBehaviour:
   <Volatility>k__BackingField: 1
   <Color>k__BackingField:
     serializedVersion: 2
-    rgba: 15466751
+    rgba: 16757504
+  <Material>k__BackingField: {fileID: 2100000, guid: b3112329e1ca1b048bc530932dfa853d, type: 2}

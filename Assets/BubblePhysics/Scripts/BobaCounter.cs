@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class BobaCounter : MonoBehaviour
 {
+    [SerializeField] int player = 1;
     [SerializeField] float totalScore = 0.0f;
 
     public float getScore() { return totalScore; }
@@ -12,7 +13,8 @@ public class BobaCounter : MonoBehaviour
 
         if(bobaComp != null)
         {
-            totalScore += bobaComp.getScore();
+            GameManager.Instance.stockSim.BuyStock(bobaComp.getStock(), player);
+            bobaComp.setOwner(player);
         }
     }
 
@@ -20,9 +22,10 @@ public class BobaCounter : MonoBehaviour
     {
         BobaEntity bobaComp = other.GetComponent<BobaEntity>();
 
-        if (bobaComp != null)
+        if (bobaComp != null && bobaComp.getOwner() == player)
         {
-            totalScore -= bobaComp.getScore();
+            GameManager.Instance.stockSim.SellStock(bobaComp.getStock(), player);
+            bobaComp.clearOwner();
         }
     }
 }
