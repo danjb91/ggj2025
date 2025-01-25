@@ -59,7 +59,7 @@
 			<destination>{9dd5dab8-ee15-4d1b-b845-f0334394682a}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{ab4e04a0-af4d-42fa-a851-b51ab96adfd3}</destination>
+			<destination>{ea23914c-3e55-4845-94e8-376a5dcec04a}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{a2e4fc35-5475-49ed-bf1d-4f27bc2fe614}" />
@@ -127,6 +127,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{d9dbe506-1b25-40de-bb94-2c3e60cfa48a}">
+		<property name="volume">
+			<value>4</value>
+		</property>
 		<property name="name">
 			<value>Suction</value>
 		</property>
@@ -237,7 +240,7 @@
 			<value>2.0083198707592889</value>
 		</property>
 		<property name="value">
-			<value>6</value>
+			<value>7</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{66d9c0fc-14e8-43ac-ab85-33b164283f7b}">

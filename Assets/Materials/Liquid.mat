@@ -16,7 +16,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 1969
   stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
@@ -26,6 +26,10 @@ Material:
     m_TexEnvs:
     - _BaseMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BobaMask:
+        m_Texture: {fileID: 8400000, guid: 0ad55071d16decb44932a6be74bfeb46, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -105,7 +109,7 @@ Material:
     - _Offset: -0.007
     - _Parallax: 0.005
     - _QueueControl: 0
-    - _QueueOffset: 0
+    - _QueueOffset: -31
     - _ReceiveShadows: 1
     - _SWITCH: 0
     - _Smoothness: 0.5
@@ -116,13 +120,14 @@ Material:
     - _Surface: 0
     - _WaveMax: 0.5
     - _WaveMin: 0
-    - _WaveSpeed: 0.1
+    - _WaveSpeed: 0.7
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _LiquidColor: {r: 1, g: 0.9098039, b: 0.62745106, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _WaveScale: {r: -0.001, g: 0.002, b: 0, a: 0}
   m_BuildTextureStacks: []
