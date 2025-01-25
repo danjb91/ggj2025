@@ -17,6 +17,9 @@
 			<destination>{ce5bcf35-85e4-439f-9444-0798c5cee03e}</destination>
 			<destination>{3f284ea4-21ae-462a-994a-b73a48dec924}</destination>
 			<destination>{29177d07-af95-4446-beab-4af52bf43cec}</destination>
+			<destination>{38a3904c-b42e-4690-a3c6-5b988b435ddc}</destination>
+			<destination>{7f9a30ef-26a2-4697-b139-6c7473e2adb8}</destination>
+			<destination>{b13a5f09-724a-420b-8510-3aa9883928c2}</destination>
 		</relationship>
 	</object>
 	<object class="MarkerTrack" id="{2a29f919-17ec-4115-a279-753dff156241}" />
@@ -55,6 +58,53 @@
 		</property>
 		<relationship name="event">
 			<destination>{d90655c5-756e-4ee6-ab07-2a6add6a8ef1}</destination>
+		</relationship>
+	</object>
+	<object class="SandboxEmitter" id="{38a3904c-b42e-4690-a3c6-5b988b435ddc}">
+		<property name="positionX">
+			<value>-0.275000006</value>
+		</property>
+		<property name="positionZ">
+			<value>3.67499995</value>
+		</property>
+		<relationship name="sandboxParameters">
+			<destination>{5880eff1-d0a7-472f-a10f-24da17256fc0}</destination>
+		</relationship>
+		<relationship name="event">
+			<destination>{76d365d4-52c4-43ae-aa85-7037658f342f}</destination>
+		</relationship>
+	</object>
+	<object class="SandboxEmitter" id="{7f9a30ef-26a2-4697-b139-6c7473e2adb8}">
+		<property name="positionX">
+			<value>0.124999978</value>
+		</property>
+		<property name="positionZ">
+			<value>7.00000048</value>
+		</property>
+		<property name="rotationY">
+			<value>-38.6192284</value>
+		</property>
+		<relationship name="event">
+			<destination>{22b0389e-3163-4e0a-bfe6-e65b27ab7fa5}</destination>
+		</relationship>
+	</object>
+	<object class="SandboxEmitter" id="{b13a5f09-724a-420b-8510-3aa9883928c2}">
+		<property name="positionX">
+			<value>-0.225000009</value>
+		</property>
+		<property name="positionZ">
+			<value>5.05000019</value>
+		</property>
+		<relationship name="event">
+			<destination>{433ce39f-e9f7-4a3f-9c7c-59fbe2ec74de}</destination>
+		</relationship>
+	</object>
+	<object class="SandboxParameter" id="{5880eff1-d0a7-472f-a10f-24da17256fc0}">
+		<property name="parameterValue">
+			<value>1</value>
+		</property>
+		<relationship name="parameter">
+			<destination>{4eb24000-9e5c-4674-aa30-201a167e5db8}</destination>
 		</relationship>
 	</object>
 </objects>

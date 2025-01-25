@@ -59,7 +59,7 @@
 			<destination>{8109bb8f-60fc-41c9-9d9d-b739b73e0e84}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{ab4e04a0-af4d-42fa-a851-b51ab96adfd3}</destination>
+			<destination>{cd76e2f2-c368-4909-9349-0d8ecbf67d17}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{e427b9eb-5a3b-40b1-83a0-35ae1e3a364c}" />
@@ -106,6 +106,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{54922d96-fd37-4dfc-b36c-c61708d4976c}">
+		<property name="volume">
+			<value>6.5</value>
+		</property>
 		<property name="name">
 			<value>AMB_Loop</value>
 		</property>
