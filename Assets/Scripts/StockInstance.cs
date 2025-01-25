@@ -16,6 +16,8 @@ public class StockInstance
 
     public Color32 Color { get; set; }
 
+    public Material Material { get; set; }
+
     public StockInstance() => (Name, Price, UpperBound, LowerBound, TotalShares, Volatility, Color) = ("", 0, 0, 0, 100, 1f, new Color32());
-    public StockInstance(Stonk stonk) => (Name, Price, UpperBound, LowerBound, TotalShares, Volatility, Color) = (stonk.name, stonk.Price, stonk.UpperBound, stonk.LowerBound, stonk.TotalShares, stonk.Volatility, stonk.Color);
+    public StockInstance(Stonk stonk) => (Name, Price, UpperBound, LowerBound, TotalShares, Volatility, Color, Material) = (stonk.name, stonk.Price, stonk.UpperBound, stonk.LowerBound, stonk.TotalShares, stonk.Volatility, stonk.Color, stonk.Material);
 }
