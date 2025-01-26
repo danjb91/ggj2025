@@ -8,6 +8,8 @@ public class NewsTickerController : MonoBehaviour
     public NewsTickerItemController newsTickerItemPrefab;
     public float itemDuration = 2.0f;
 
+    RectTransform rect;
+
     float width;
     float pixelsPerSecond;
     List<NewsTickerItemController> currentItems = new();
@@ -18,7 +20,9 @@ public class NewsTickerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        chaosSim = GetComponentInParent<StockChaosSim>();
+        rect = GetComponent<RectTransform>();
+
+        chaosSim = GameManager.Instance.chaosSim;
         chaosSim.OnStockEvent += OnStockEvent;
         
         messageManager = GetComponentInParent<StockMessageManager>();
@@ -46,8 +50,12 @@ public class NewsTickerController : MonoBehaviour
 
         if (lastItem != null)  
         {
+            var endPos = lastItem.Rect.position + Vector3.right * (lastItem.Text.preferredWidth + (5 * lastItem.Text.text.Length));
+
             // this doesnt work
-            newItem.Rect.position = lastItem.Rect.position + Vector3.right * (lastItem.Text.preferredWidth + (5 * lastItem.Text.text.Length));
+
+            if (endPos.x > rect.rect.max.x)
+                newItem.Rect.position = endPos;
         }
 
         currentItems.Add(newItem);
