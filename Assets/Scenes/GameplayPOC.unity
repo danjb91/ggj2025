@@ -969,6 +969,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4437781228923751038, guid: 83f85e55a45ce3749b75a88d68150d43, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1190.58
+      objectReference: {fileID: 0}
     - target: {fileID: 9155831563099601735, guid: 83f85e55a45ce3749b75a88d68150d43, type: 3}
       propertyPath: m_Name
       value: GameUI

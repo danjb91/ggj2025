@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    public TMP_Text TextDisplay;
+    public string CurrentStateStr;
 
     private GameState _gameState = GameState.START;
     public GameState gameState
@@ -98,36 +98,34 @@ public class GameManager : MonoBehaviour
             GoToNextState();
         }
 
-        if(TextDisplay != null)
-        {
-            string text = "";
-            switch(gameState){
-                case GameState.PREP:
-                    text = "Get Ready!";
-                    break;
-                case GameState.PLAY:
-                    text = "";
-                    break;
-                case GameState.GAME_END:
-                    switch(playerWinner)
-                    {
-                        case 1:
-                            text = "Player 1 Won!";
-                            break;
-                        case 2:
-                            text = "Player 2 Won!";
-                            break;
-                        case 3:
-                            text = "Tie!";
-                            break;
-                    }
-                    break;
+ 
+        string text = "";
+        switch(gameState){
+            case GameState.PREP:
+                text = "Get Ready!";
+                break;
+            case GameState.PLAY:
+                text = "";
+                break;
+            case GameState.GAME_END:
+                switch(playerWinner)
+                {
+                    case 1:
+                        text = "Player 1 Won!";
+                        break;
+                    case 2:
+                        text = "Player 2 Won!";
+                        break;
+                    case 3:
+                        text = "Tie!";
+                        break;
+                }
+                break;
 
-            }
-            text += $" {timeLeft:0.0}";
-
-            TextDisplay.text = text;
         }
+        text += $"\n{timeLeft:0.0}";
+
+        CurrentStateStr = text;
     }
 
     private void Awake()

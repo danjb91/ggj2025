@@ -34,6 +34,10 @@ public class StrawController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (GameManager.Instance.gameState != GameState.PLAY)
+        {
+            return;
+        }
         Vector3 resultingMovement = Vector3.zero;
 
         if (connectToWasd)
