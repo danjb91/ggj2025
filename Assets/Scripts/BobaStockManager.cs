@@ -65,7 +65,7 @@ public class BobaStockManager : MonoBehaviour
         if (bobaStockToSpawn.Count > 0)
         {
             var top = bobaStockToSpawn.Pop();
-            var randomPos = new Vector3(0f, Random.Range(spawner.bounds.min.y, spawner.bounds.max.y), Random.Range(spawner.bounds.min.z, spawner.bounds.max.z));
+            var randomPos = new Vector3(spawner.transform.position.x, Random.Range(spawner.bounds.min.y, spawner.bounds.max.y), Random.Range(spawner.bounds.min.z, spawner.bounds.max.z));
             var boba = Instantiate(bobaPrefab, randomPos, Quaternion.identity);
             var bobaEntity = boba.GetComponent<BobaEntity>();
             bobaEntity.setStock(top.stockName);
