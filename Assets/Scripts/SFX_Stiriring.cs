@@ -1,9 +1,10 @@
 using UnityEngine;
 
-public class SFX_Suck : MonoBehaviour
+public class SFX_Stiriring : MonoBehaviour
 {
 
-    // press Q
+
+    // input detection + is inside box collider (only when in tea)
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

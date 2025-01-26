@@ -676,6 +676,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1752065563447854452}
   - component: {fileID: 8197577173318322918}
+  - component: {fileID: 4318467479992987917}
   m_Layer: 0
   m_Name: sfx_Stirring
   m_TagString: Untagged
@@ -729,3 +730,15 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &4318467479992987917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8866141472983309403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c9d90dd8234e4d6eb61d3783a6bcb17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
