@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
             _gameState = value;
         }
     }
-    public const float quarterLength = 30f;
+    public const float quarterLength = 60f;
     public const float quarterBreakLength = 10f;
     public const float prepLength = 5f;
     public const float resultLength = 10f;
