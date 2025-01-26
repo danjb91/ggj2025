@@ -5,7 +5,7 @@ public class StrawScaleManager : MonoBehaviour
     static float minMoneyRange = 0.0f;
     static float maxMoneyRange = 1000.0f;
 
-    static float minScale = 2.0f;
+    static float minScale = 1.0f;
     static float maxScale = 4.0f;
 
     public int owner = 0;
