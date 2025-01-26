@@ -39,6 +39,7 @@ public class BobaStockManager : MonoBehaviour
     private void OnStockAdded(object sender, StockInstance stock)
     {
         int splitAmount = stock.TotalShares / 10;
+        Debug.Log($"New Stock {stock.Name}, spawning {splitAmount} boba");
         for (int i = 0; i < stock.TotalShares; i += splitAmount)
         {
             bobaStockToSpawn.Push(new BobaStockToSpawn { stockName = stock.Name, shares = splitAmount, material = stock.Material });
@@ -55,6 +56,19 @@ public class BobaStockManager : MonoBehaviour
                 Destroy(boba.gameObject);
             }
         }
+    }
+
+    public void ResetGame()
+    {
+        var allBoba = FindObjectsByType<BobaEntity>(FindObjectsSortMode.None);
+        foreach (var boba in allBoba)
+        {
+            Destroy(boba.gameObject);
+        }
+        
+        sharesInPlay.Clear();
+        lastStockCheck = 0;
+        lastUpdate = 0;
     }
 
     public void AddStockToSpawn(string stockName, int shares, Material material)
