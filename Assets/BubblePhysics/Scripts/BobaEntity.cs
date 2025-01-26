@@ -15,6 +15,8 @@ public class BobaEntity : MonoBehaviour
     public int getOwner() { return owner; }
     public void clearOwner() { owner = 0; }
 
+    bool isDestroyed = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,6 +26,10 @@ public class BobaEntity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (transform.position.y < -50f && !isDestroyed)
+        {
+            GameManager.Instance.bobaStockManager.RemoveBobaFromPlay(this);
+            isDestroyed = true;
+        }
     }
 }
