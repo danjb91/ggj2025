@@ -27,6 +27,34 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &-6666324981203088839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MUSIC/MX_MusicEvent
+  m_EditorClassIdentifier: 
+  Path: event:/MUSIC/MX_MusicEvent
+  Guid:
+    Data1: -1233671766
+    Data2: 1239870817
+    Data3: -1902399834
+    Data4: -77090063
+  Banks:
+  - {fileID: -4082917449420631108}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 4933957403443741694}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 259047
 --- !u!114 &-6630166306663237815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,10 +124,10 @@ MonoBehaviour:
   Path: GameJam_BobaHoldings/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638734361314244968
+  lastModified: 638734877620944121
   FileSizes:
   - Name: Desktop
-    Value: 8017888
+    Value: 8017856
   Exists: 1
 --- !u!114 &-3615392860065357342
 MonoBehaviour:
@@ -149,40 +177,12 @@ MonoBehaviour:
   Banks:
   - {fileID: -4082917449420631108}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
   Length: 500
---- !u!114 &-2426335855109156764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/MUSIC/MX_MainMusic 2
-  m_EditorClassIdentifier: 
-  Path: event:/MUSIC/MX_MainMusic 2
-  Guid:
-    Data1: 1993565652
-    Data2: 1135497924
-    Data3: 930121130
-    Data4: 791973733
-  Banks:
-  - {fileID: -4082917449420631108}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: 1221517480709185799}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 259047
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,14 +207,14 @@ MonoBehaviour:
   - {fileID: 2012802186707643841}
   - {fileID: -3615392860065357342}
   - {fileID: 5318990999157739148}
-  - {fileID: -2426335855109156764}
   - {fileID: 3953743271899379704}
+  - {fileID: -6666324981203088839}
   EditorParameters: []
   MasterBanks:
   - {fileID: -4082917449420631108}
   StringsBanks:
   - {fileID: 749860038146401976}
-  cacheTime: 638734361314264638
+  cacheTime: 638734877620983681
   cacheVersion: 131622
 --- !u!114 &749860038146401976
 MonoBehaviour:
@@ -231,34 +231,10 @@ MonoBehaviour:
   Path: GameJam_BobaHoldings/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638734361314264638
+  lastModified: 638734877620983681
   FileSizes:
   - Name: Desktop
-    Value: 1512
-  Exists: 1
---- !u!114 &1221517480709185799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/MX_MainMusic 2/MusicSystem_2
-  m_EditorClassIdentifier: 
-  Name: MusicSystem_2
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 413953956
-    data2: 3875345891
-  Type: 1
-  IsGlobal: 0
-  Labels: []
+    Value: 1560
   Exists: 1
 --- !u!114 &2012802186707643841
 MonoBehaviour:
@@ -314,6 +290,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 6040
+--- !u!114 &4933957403443741694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MX_MusicEvent/MusicSystem_2
+  m_EditorClassIdentifier: 
+  Name: MusicSystem_2
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 413953956
+    data2: 3875345891
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &5318990999157739148
 MonoBehaviour:
   m_ObjectHideFlags: 0
