@@ -703,6 +703,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: straw
       objectReference: {fileID: 0}
+    - target: {fileID: 8084673867307383532, guid: 9d3fb46568d584041ad81fc709790e54, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: fd5efd8512eb16e40836e881ba8d7b3e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
