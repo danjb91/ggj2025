@@ -6,6 +6,7 @@ TagManager:
   tags:
   - StrawYLimit
   - Spawner
+  - Bubble
   layers:
   - Default
   - TransparentFX
