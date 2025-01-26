@@ -36,6 +36,7 @@ public class StrawController : MonoBehaviour
     {
         if (GameManager.Instance.gameState != GameState.PLAY)
         {
+            rb.linearVelocity = Vector3.zero;
             return;
         }
         Vector3 resultingMovement = Vector3.zero;
