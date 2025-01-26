@@ -50,7 +50,9 @@ public class NewsTickerController : MonoBehaviour
 
         if (lastItem != null)  
         {
-            var endPos = lastItem.Rect.position + Vector3.right * (lastItem.Text.preferredWidth + (5 * lastItem.Text.text.Length));
+            float scale = (1f / 800f) * rect.rect.width;
+
+            var endPos = lastItem.Rect.position + Vector3.right * (lastItem.Text.preferredWidth + (5 * scale * lastItem.Text.text.Length));
 
             // this doesnt work
 
@@ -86,7 +88,7 @@ public class NewsTickerController : MonoBehaviour
 
     void UpdateWidth()
     {
-        width = GetComponent<RectTransform>().rect.width;
+        width = Screen.width; //  GetComponent<RectTransform>().rect.width;
         pixelsPerSecond = width / itemDuration;
     }
 }

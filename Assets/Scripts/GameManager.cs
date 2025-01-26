@@ -80,6 +80,8 @@ public class GameManager : MonoBehaviour
                     break;
                 }
             case GameState.GAME_END:
+                stockSim.ResetGame();
+                bobaStockManager.ResetGame();
                 gameState = GameState.START;
                 break;
         }

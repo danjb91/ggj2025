@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 
 public class StockSimulation : MonoBehaviour
 {
@@ -122,7 +123,8 @@ public class StockSimulation : MonoBehaviour
     public void RemoveStock(string stock, int player = 1)
     {
         var currentStock = GetStock(stock);
-        CurrentStocks.Remove(currentStock);
+        bool result = CurrentStocks.Remove(currentStock);
+        Debug.Log($"Removing stock {stock}: {result}");
         foreach (var portfolio in portfolios)
         {
             if (portfolio.ContainsKey(stock))
@@ -144,6 +146,7 @@ public class StockSimulation : MonoBehaviour
                 var newStock = new StockInstance(selectedStock);
                 CurrentStocks.Add(newStock);
                 StockAdded?.Invoke(this, newStock);
+                Debug.Log($"Added stock {newStock.Name}");
                 break;
             }
         }
@@ -194,6 +197,17 @@ public class StockSimulation : MonoBehaviour
             AddNewStock();
             toCreate--;
         }
+    }
+
+    public void ResetGame()
+    {
+        var stocksToRemove = CurrentStocks.ToList();
+        foreach (var stock in stocksToRemove)
+        {
+            RemoveStock(stock.Name);
+        }
+
+        Start();
     }
 
     // Update is called once per frame
