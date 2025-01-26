@@ -15,7 +15,7 @@ public class StockSimulation : MonoBehaviour
     public event EventHandler<StockInstance> StockAdded;
     public event EventHandler<StockInstance> StockCrashed;
 
-    public List<double> currentMoney = new List<double>{ 1000.0, 1000.0 };
+    public List<double> currentMoney = new List<double>{ 0.0, 0.0 };
     public double refreshRate = 1.0;
 
     public void SetStockVolatiliy(string stock, float upperBound, float lowerBound)
@@ -73,22 +73,19 @@ public class StockSimulation : MonoBehaviour
     public void BuyStock(string stock, int player = 1)
     {
         var currentStock = GetStock(stock);
-        if (currentMoney[player - 1] >= currentStock.Price)
+        var proportion = (1f / currentStock.TotalShares);
+        var bonus = 1 + proportion * (1f + UnityEngine.Random.value * currentStock.Volatility);
+        currentStock.Price *= bonus;
+        currentStock.UpperBound *= 1f - proportion;
+        Debug.Log($"Buy Bonus: {bonus}");
+        currentMoney[player - 1] = Math.Max(0, currentMoney[player - 1] - currentStock.Price);
+        if (portfolios[player - 1].ContainsKey(stock))
         {
-            var proportion = (1f / currentStock.TotalShares);
-            var bonus = 1 + proportion * (1f + UnityEngine.Random.value * currentStock.Volatility);
-            currentStock.Price *= bonus;
-            currentStock.UpperBound *= 1f - proportion;
-            Debug.Log($"Buy Bonus: {bonus}");
-            currentMoney[player - 1] = Math.Max(0, currentMoney[player - 1] - currentStock.Price);
-            if (portfolios[player - 1].ContainsKey(stock))
-            {
-                portfolios[player - 1][stock]++;
-            }
-            else
-            {
-                portfolios[player - 1].Add(stock, 1);
-            }
+            portfolios[player - 1][stock]++;
+        }
+        else
+        {
+            portfolios[player - 1].Add(stock, 1);
         }
     }
     public void SellStock(string stock, int player = 1)
@@ -151,6 +148,12 @@ public class StockSimulation : MonoBehaviour
             stock.UpperBound = Math.Max(stock.LowerBound, stock.UpperBound + UnityEngine.Random.Range(-(stock.Volatility / 2f), (stock.Volatility / 2f)));
             stock.LowerBound = Math.Min(stock.UpperBound, stock.LowerBound + UnityEngine.Random.Range(-(stock.Volatility / 2f), (stock.Volatility / 2f)));
             stock.Volatility = Math.Max(1f, stock.Volatility - UnityEngine.Random.value);
+            int prevStock = stock.TotalShares;
+            stock.TotalShares = Math.Max(stock.TotalShares, Mathf.CeilToInt(stock.Price / 100f) * 50 + 50);
+            if (stock.TotalShares != prevStock) 
+            {
+                Debug.Log($"Stock {stock.Name} has changed total shares from {prevStock} to {stock.TotalShares}");
+            }
         }
         var stocksToRemove = CurrentStocks.Where(s => s.Price <= 0).ToList();
         foreach (var stock in stocksToRemove)
@@ -168,6 +171,7 @@ public class StockSimulation : MonoBehaviour
 
     private void Start()
     {
+        GameManager.Instance.stockSim = this;
         int toCreate = 5;
         while (toCreate > 0)
         {

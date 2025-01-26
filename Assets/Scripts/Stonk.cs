@@ -11,7 +11,7 @@ public class Stonk : ScriptableObject
     [field: SerializeField]
     public float LowerBound { get; set; }
     // How much the stock bound is affected by sales or purchases
-    [SerializeField]
+    [field: SerializeField]
     public int TotalShares { get; set; }
     // How much has the stock last changed
     public float Delta { get; set; }

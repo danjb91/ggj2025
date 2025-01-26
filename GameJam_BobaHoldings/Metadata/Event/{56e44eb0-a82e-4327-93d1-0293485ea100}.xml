@@ -8,7 +8,7 @@
 			<value>sfx_Bubbles</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{df3f2f3e-a714-43fe-8027-a25dd5365cce}</destination>
@@ -78,6 +78,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{c75ec348-4813-4f87-ac55-1cfb09fa25af}">
+		<property name="volume">
+			<value>2.5</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{02538bf2-63ca-47c8-9046-1a50a0b7074c}</destination>
 		</relationship>
@@ -127,9 +130,6 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{f7d9cb04-4a5e-46dc-bda8-6b9cd3c42102}">
-		<property name="volume">
-			<value>-1</value>
-		</property>
 		<property name="name">
 			<value>Bobbles</value>
 		</property>
@@ -146,10 +146,13 @@
 	<object class="MixerBusEffectChain" id="{02538bf2-63ca-47c8-9046-1a50a0b7074c}">
 		<relationship name="effects">
 			<destination>{4a5b61ce-e6c0-44a8-9324-9a6fb3cac745}</destination>
-			<destination>{5dbf2d10-d9cd-4347-8d2e-141347baa4e0}</destination>
 		</relationship>
 	</object>
-	<object class="MixerBusPanner" id="{c021b81f-c758-4238-8ff5-1a96187e2881}" />
+	<object class="MixerBusPanner" id="{c021b81f-c758-4238-8ff5-1a96187e2881}">
+		<property name="overridingOutputFormat">
+			<value>1</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{31a87891-4ab3-4dc1-8949-0a897f2a539c}" />
 	<object class="RandomizerModulator" id="{83f256c9-5832-4524-8883-d36c080fc00f}">
 		<property name="nameOfPropertyBeingModulated">
@@ -224,7 +227,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{06e76145-3a7e-4053-b2e4-e575cbe6155b}" />
 	<object class="MixerBusFader" id="{4a5b61ce-e6c0-44a8-9324-9a6fb3cac745}" />
-	<object class="SpatialiserEffect" id="{5dbf2d10-d9cd-4347-8d2e-141347baa4e0}" />
 	<object class="AutomationPoint" id="{36c7b454-8d8f-4e86-820b-379c0b33e672}">
 		<property name="position">
 			<value>0.4375</value>
