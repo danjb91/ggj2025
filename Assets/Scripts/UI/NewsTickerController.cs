@@ -36,7 +36,7 @@ public class NewsTickerController : MonoBehaviour
         //     return;
         // }
 
-        var msg = messageManager.RandomMessage(stockEvent.EventType, stockEvent.Stock.Name);
+        var msg = messageManager.RandomMessage(stockEvent.EventType, stockEvent.Stock.Name, stockEvent.Stock.Color);
 
         Debug.Log($"OnStockEvent [{stockEvent.EventType}] msg = " + msg);
 

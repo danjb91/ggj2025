@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
+using ColorUtility = UnityEngine.ColorUtility;
 
 public class StockMessageManager : MonoBehaviour
 {
@@ -14,13 +15,6 @@ public class StockMessageManager : MonoBehaviour
     {
         foreach (var x in Enum.GetValues(typeof(EventType)))
             LoadMessages((EventType)x);
-
-        // test a few
-        var msg = RandomMessage(EventType.CRASH, "GGX");
-        Debug.Log(msg);
-        var msg2 = RandomMessage(EventType.SURGE, "GGX");
-        Debug.Log(msg2);
-        
     }
 
     void LoadMessages(EventType type)
@@ -41,13 +35,15 @@ public class StockMessageManager : MonoBehaviour
         Debug.Log($"{fname}: {messages[type].Count} messages");
     }
 
-    public string? RandomMessage(EventType type, string stockName)
+    public string? RandomMessage(EventType type, string stockName, Color32 stockColor)
     {
         if (messages[type] == null)
             return null;
 
+        string stockTag = $"<color=#{ColorUtility.ToHtmlStringRGB(stockColor)}>{stockName}</color>";
+
         var id = UnityEngine.Random.Range(0, (int)messages[type].Count);
-        return messages[type][id].Replace("GGX", stockName);
+        return messages[type][id].Replace("GGX", stockTag);
     }
 
 

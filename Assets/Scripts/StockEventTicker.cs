@@ -16,9 +16,9 @@ public class StockEventTicker : MonoBehaviour
 
     void OnStockEvent(object sender, StockEvent stockEvent)
     {
-        var msg = messageManager.RandomMessage(stockEvent.EventType, stockEvent.Stock.Name);
+        var msg = messageManager.RandomMessage(stockEvent.EventType, stockEvent.Stock.Name, stockEvent.Stock.Color);
 
-        Debug.Log($"OnStockEvent [{stockEvent.EventType}] msg = " + msg);
+        // Debug.Log($"OnStockEvent [{stockEvent.EventType}] msg = " + msg);
     }
 
     // Update is called once per frame
