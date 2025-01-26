@@ -5,7 +5,9 @@ public class SuccScript : MonoBehaviour
 {
     [SerializeField] float succForce = 100.0f;
     [SerializeField] string succButton = "succ";
+    StrawScaleManager strawParent;
 
+    int owner = 0;
     public StudioEventEmitter succSoundEvent;
 
     bool isSuccing = false;
@@ -14,23 +16,37 @@ public class SuccScript : MonoBehaviour
     {
         
     }
-    
+
+    private void Start()
+    {
+        strawParent = gameObject.GetComponentInParent<StrawScaleManager>();
+    }
     private void OnTriggerStay(Collider other)
     {
+        var owner = strawParent.owner;
         if(other.GetComponent<BobaEntity>() != null && Input.GetButton(succButton))
         {
+            var boba = other.GetComponent<BobaEntity>();
             if (!isSuccing)
             {
                 isSuccing = true;
                 BeginSucc();
             }
             
-            Debug.Log("Succing");
             Rigidbody rb = other.GetComponent<Rigidbody>();
+            float money = Mathf.Max(StrawScaleManager.minMoneyRange, (float)GameManager.Instance.stockSim.currentMoney[owner]);
+            float moneyRatio = money / StrawScaleManager.maxMoneyRange;
+            float scale = StrawScaleManager.minScale + (StrawScaleManager.maxScale - StrawScaleManager.minScale) * moneyRatio;
 
-            if (rb != null)
+            if (rb != null && boba != null)
             {
-                rb.AddForce(transform.up * succForce);
+                var bobaScale = (boba.getShares() / 10f);
+                float scaleDamping = 1.0f;
+                if (bobaScale > scale)
+                {
+                    scaleDamping = Mathf.Max(1f, scale / bobaScale);
+                }
+                rb.AddForce(transform.up * succForce * scaleDamping);
             }
         }
         else if (!Input.GetButton(succButton))
