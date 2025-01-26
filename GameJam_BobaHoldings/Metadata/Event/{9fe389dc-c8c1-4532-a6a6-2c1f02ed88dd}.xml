@@ -106,9 +106,6 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{54922d96-fd37-4dfc-b36c-c61708d4976c}">
-		<property name="volume">
-			<value>6.5</value>
-		</property>
 		<property name="name">
 			<value>AMB_Loop</value>
 		</property>
@@ -145,10 +142,19 @@
 	<object class="MixerBusFader" id="{77c470b8-adf8-4feb-8e89-3cefe147b664}" />
 	<object class="MixerBusEffectChain" id="{fac5582c-569c-46d2-8b70-184db9f4550e}">
 		<relationship name="effects">
+			<destination>{6c779f27-b7bf-4376-a6ec-b36422c18691}</destination>
 			<destination>{d88e872b-d146-454e-9637-c01ca74b8c50}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{b3d783c4-b71d-4b93-b0ce-6e6b6341637e}" />
 	<object class="MixerBusFader" id="{22dd07da-a5cd-47d6-b65e-0c77d52ee8f6}" />
+	<object class="ThreeEQEffect" id="{6c779f27-b7bf-4376-a6ec-b36422c18691}">
+		<property name="midGain">
+			<value>-6</value>
+		</property>
+		<property name="highGain">
+			<value>-11.5</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{d88e872b-d146-454e-9637-c01ca74b8c50}" />
 </objects>
