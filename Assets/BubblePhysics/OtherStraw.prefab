@@ -14,7 +14,9 @@ GameObject:
   - component: {fileID: 2925839143875021095}
   - component: {fileID: 2382912498100250465}
   - component: {fileID: 5270409905083984464}
-  m_Layer: 0
+  - component: {fileID: 5173805015107591473}
+  - component: {fileID: 6496559924000149423}
+  m_Layer: 7
   m_Name: ActualStraw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,6 +156,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: 1
+--- !u!114 &5173805015107591473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2895946308396939802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 112371684
+      Data2: 1135583953
+      Data3: 573202622
+      Data4: -506315582
+    Path: event:/SFX/sfx_Stirring
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &6496559924000149423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2895946308396939802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5626aa7f20cde4767a4a0c0354d255b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stirringSoundEvent: {fileID: 5173805015107591473}
 --- !u!1 &4667954604121670028
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,6 +330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   succForce: 100
   succButton: succ2
+  succSoundEvent: {fileID: 0}
 --- !u!1 &6951194318520368101
 GameObject:
   m_ObjectHideFlags: 0
