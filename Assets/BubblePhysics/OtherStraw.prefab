@@ -273,6 +273,7 @@ GameObject:
   - component: {fileID: 8764476495219938832}
   - component: {fileID: 1232592589114134441}
   - component: {fileID: 1648108348100246994}
+  - component: {fileID: 1168180050162637799}
   m_Layer: 7
   m_Name: Suckerr
   m_TagString: Untagged
@@ -330,7 +331,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   succForce: 100
   succButton: succ2
-  succSoundEvent: {fileID: 0}
+  succSoundEvent: {fileID: 1168180050162637799}
+--- !u!114 &1168180050162637799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6578693286597512243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -653896251
+      Data2: 1323726190
+      Data3: 1781139371
+      Data4: -242324771
+    Path: event:/SFX/sfx_Suction_Light
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &6951194318520368101
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,6 +703,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: straw
       objectReference: {fileID: 0}
+    - target: {fileID: 8084673867307383532, guid: 9d3fb46568d584041ad81fc709790e54, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: fd5efd8512eb16e40836e881ba8d7b3e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
