@@ -17,10 +17,14 @@ public class BobaEntity : MonoBehaviour
 
     bool isDestroyed = false;
 
+    public FMODUnity.EventReference bubbleSpawn;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Pitch_Change", 10f / shares);
+        FMODUnity.RuntimeManager.PlayOneShot(bubbleSpawn);    
     }
 
     public void SetupScale()

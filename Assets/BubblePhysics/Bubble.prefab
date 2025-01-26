@@ -152,6 +152,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shares: 1
   stock: 
+  bubbleSpawn:
+    Guid:
+      Data1: 2068494228
+      Data2: 1119364986
+      Data3: -103807313
+      Data4: -1615988098
+    Path: event:/SFX/sfx_SpawnBubble
 --- !u!114 &7947895002707091394
 MonoBehaviour:
   m_ObjectHideFlags: 0
