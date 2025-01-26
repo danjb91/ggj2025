@@ -29,6 +29,7 @@ public class StockChartManager : MonoBehaviour
 
 		if (stockSimulation == null) return;
 
+		stockSimulation.OnSimulationReset += OnStockSimulationReset;
         stockSimulation.OnSimulationTick += OnStockSimulationTick;
 		stockSimulation.StockAdded += OnStockAdded;
 		stockSimulation.StockCrashed += OnStockCrashed;
@@ -37,6 +38,15 @@ public class StockChartManager : MonoBehaviour
 		{
 			OnStockAdded(null, stockInstance);
 		}
+    }
+
+    private void OnStockSimulationReset()
+    {
+        foreach (StockChart stockChart in stockCharts)
+		{
+			stockChartPool.Pool.Release(stockChart.gameObject);
+		}
+		stockCharts.Clear();
     }
 
     void OnStockSimulationTick()
@@ -70,6 +80,7 @@ public class StockChartManager : MonoBehaviour
 		StockChart newStockChart = newStockChartGO.GetComponent<StockChart>();
 		newStockChart.RepresentedStock = e;
 		newStockChart.MaxChartValue = storedChartMax;
+		newStockChart.ResetGraph();
 		stockCharts.Add(newStockChart);
 	}
 

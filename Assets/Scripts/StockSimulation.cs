@@ -20,8 +20,10 @@ public class StockSimulation : MonoBehaviour
     public double refreshRate = 1.0;
 
     public delegate void StockSimulationTickHandler();
+    public delegate void StockSimulationResetHandler();
 
     public event StockSimulationTickHandler OnSimulationTick;
+    public event StockSimulationResetHandler OnSimulationReset;
 
     public void SetStockVolatiliy(string stock, float upperBound, float lowerBound)
     {

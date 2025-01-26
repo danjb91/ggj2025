@@ -51,6 +51,12 @@ public class StockChart : MonoBehaviour
 		lineRenderer.positionCount = linePositions.Length;
 	}
 
+	public void ResetGraph()
+	{
+		linePositions = new Vector3[historicalValueCount];
+		stockHistoricalValues = new float[historicalValueCount];
+	}
+
 	public void UpdateGraph()
 	{
 		for	(int x = historicalValueCount - 1; x > 0; x--)
