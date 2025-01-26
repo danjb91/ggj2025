@@ -227,6 +227,7 @@ GameObject:
   - component: {fileID: 3210894830408980358}
   - component: {fileID: 206538738934565334}
   - component: {fileID: 5857805438180815050}
+  - component: {fileID: 8285229077514310219}
   m_Layer: 0
   m_Name: GameObject (3)
   m_TagString: Untagged
@@ -282,7 +283,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee8e9a7959e4fab40bf505dc29264613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: 1
   totalScore: 0
+--- !u!114 &8285229077514310219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144228699176036406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Bubble
+  EventReference:
+    Guid:
+      Data1: 1457802928
+      Data2: 1126672430
+      Data3: -1828531821
+      Data4: 10575432
+    Path: event:/SFX/sfx_Bubbles
+  Event: 
+  EventPlayTrigger: 3
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &8443602259017024261
 GameObject:
   m_ObjectHideFlags: 0
