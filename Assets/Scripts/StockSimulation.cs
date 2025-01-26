@@ -18,6 +18,10 @@ public class StockSimulation : MonoBehaviour
     public List<double> currentMoney = new List<double>{ 0.0, 0.0 };
     public double refreshRate = 1.0;
 
+    public delegate void StockSimulationTickHandler();
+
+    public event StockSimulationTickHandler OnSimulationTick;
+
     public void SetStockVolatiliy(string stock, float upperBound, float lowerBound)
     {
         var currentStock = GetStock(stock);
@@ -163,6 +167,9 @@ public class StockSimulation : MonoBehaviour
                 Debug.Log($"Stock {stock.Name} has changed total shares from {prevStock} to {stock.TotalShares}");
             }
         }
+
+        OnSimulationTick();
+
         var stocksToRemove = CurrentStocks.Where(s => s.Price <= 0).ToList();
         foreach (var stock in stocksToRemove)
         {
