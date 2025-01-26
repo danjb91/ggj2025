@@ -34,6 +34,9 @@ public class GameManager : MonoBehaviour
 
     public int playerWinner { get; private set; } = 1;
 
+    public int player1Wins { get; private set; } = 0;
+    public int player2Wins { get; private set; } = 0;
+
     public float timeLeft { get; private set; } = 0f;
 
     public StockSimulation stockSim { get; set; }
@@ -65,6 +68,15 @@ public class GameManager : MonoBehaviour
                 playerWinner = p1Value > p2Value ? 1 : 2;
                 if(p1Value == p2Value)
                     playerWinner = 3;
+                switch (playerWinner)
+                {
+                    case 1:
+                        player1Wins++;
+                        break;
+                    case 2:
+                        player2Wins++;
+                        break;
+                }
                 //gameState = GameState.QUARTER_END;
                 //timeLeft = quarterBreakLength;
                 break;

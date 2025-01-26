@@ -9,6 +9,8 @@ public class HUDManager : MonoBehaviour
     TMP_Text gameState;
     TMP_Text p1Portfolio;
     TMP_Text p2Portfolio;
+    TMP_Text p1Wins;
+    TMP_Text p2Wins;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,6 +21,8 @@ public class HUDManager : MonoBehaviour
         mainMenuUI = transform.Find("MainMenu").gameObject;
         p1Portfolio = gameUI.transform.Find("Player1Portfolio").GetComponent<TMP_Text>();
         p2Portfolio = gameUI.transform.Find("Player2Portfolio").GetComponent<TMP_Text>();
+        p1Wins = gameUI.transform.Find("Player1Icon/Player1Wins").GetComponent<TMP_Text>();
+        p2Wins = gameUI.transform.Find("Player2Icon/Player2Wins").GetComponent<TMP_Text>();
     }
 
     // Update is called once per frame
@@ -27,5 +31,7 @@ public class HUDManager : MonoBehaviour
         p1Portfolio.text = $"{GameManager.Instance.stockSim.GetTotalPortfolio(1)}";
         p2Portfolio.text = $"{GameManager.Instance.stockSim.GetTotalPortfolio(2)}";
         gameState.text = GameManager.Instance.CurrentStateStr;
+        p1Wins.text = $"Wins: {GameManager.Instance.player1Wins}";
+        p2Wins.text = $"Wins: {GameManager.Instance.player2Wins}";
     }
 }

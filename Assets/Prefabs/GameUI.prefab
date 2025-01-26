@@ -342,7 +342,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: af5e3e6772717446faff45481c11c240, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 31dfbc65c7f284e03b4f91b74a9fffc2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1128,7 +1128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1293699317830482332, guid: 6ffec03a2b07b4038895eccdf9f92767, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1190.58
+      value: 1295.58
       objectReference: {fileID: 0}
     - target: {fileID: 1293699317830482332, guid: 6ffec03a2b07b4038895eccdf9f92767, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1136,7 +1136,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1293699317830482332, guid: 6ffec03a2b07b4038895eccdf9f92767, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2582595326313763476, guid: 6ffec03a2b07b4038895eccdf9f92767, type: 3}
+      propertyPath: m_isRichText
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3450844400585069837, guid: 6ffec03a2b07b4038895eccdf9f92767, type: 3}
       propertyPath: m_Enabled
