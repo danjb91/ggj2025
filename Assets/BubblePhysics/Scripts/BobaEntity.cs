@@ -23,7 +23,7 @@ public class BobaEntity : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Pitch_Change", 10f / shares);
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Pitch_Change", shares);
         FMODUnity.RuntimeManager.PlayOneShot(bubbleSpawn);    
     }
 
