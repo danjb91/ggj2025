@@ -35,15 +35,15 @@ public class StrawStirring : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Liquid")
+        if (other.gameObject.tag == "Liquid")
             isStrawInLiquid = true;
     }
 
-    void OnCollisionExit(Collision collision)
+    void OnTriggerExit(Collider other)
     {
-        if (collision.gameObject.tag == "Liquid")
+        if (other.gameObject.tag == "Liquid")
             isStrawInLiquid = false;
     }
 }
