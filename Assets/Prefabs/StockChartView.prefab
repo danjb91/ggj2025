@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 165014367813224804}
+  - {fileID: 6154558415416213980}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 67.982, z: 0}
 --- !u!1 &3001684005877242093
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 1271028535221859550}
   - component: {fileID: 5391612156735859886}
   - component: {fileID: 4974360091879200798}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,6 +108,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stockSimulation: {fileID: 0}
   stockChartPool: {fileID: 2034261647415734439}
+--- !u!1 &5567015761863837826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6154558415416213980}
+  m_Layer: 0
+  m_Name: Offset
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6154558415416213980
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5567015761863837826}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 1294.2, y: 88.4, z: -1818}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 165014367813224804}
+  m_Father: {fileID: 4207877552744691981}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &7927549799807228321
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,7 +151,7 @@ GameObject:
   - component: {fileID: 6591896486704993889}
   - component: {fileID: 3098135888335550786}
   - component: {fileID: 121249321031769239}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.9019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -196,7 +228,7 @@ GameObject:
   - component: {fileID: 3697437275678216052}
   - component: {fileID: 1725608665645871235}
   - component: {fileID: 2114235745354516420}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,16 +243,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8252629200447242313}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.000038146973}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6591896486704993889}
-  m_Father: {fileID: 4207877552744691981}
+  m_Father: {fileID: 6154558415416213980}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1079, y: 607}
+  m_AnchoredPosition: {x: 1079.0001, y: 607}
   m_SizeDelta: {x: 2158, y: 1214}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &3697437275678216052
@@ -296,7 +328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6716158114196013613}
   - component: {fileID: 2034261647415734439}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: StockChartPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,8 +382,16 @@ PrefabInstance:
       value: StockChart
       objectReference: {fileID: 0}
     - target: {fileID: 743618994146980643, guid: bb717f587a2ea4fa5a1a2f202da89131, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 743618994146980643, guid: bb717f587a2ea4fa5a1a2f202da89131, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443555424100717224, guid: bb717f587a2ea4fa5a1a2f202da89131, type: 3}
+      propertyPath: m_Parameters.widthMultiplier
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8191061109406582075, guid: bb717f587a2ea4fa5a1a2f202da89131, type: 3}
       propertyPath: m_Pivot.x
