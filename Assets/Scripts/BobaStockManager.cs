@@ -57,9 +57,9 @@ public class BobaStockManager : MonoBehaviour
         }
     }
 
-    public void AddStockToSpawn(string stockName, int shares)
+    public void AddStockToSpawn(string stockName, int shares, Material material)
     {
-        bobaStockToSpawn.Push(new BobaStockToSpawn { stockName = stockName, shares = shares });
+        bobaStockToSpawn.Push(new BobaStockToSpawn { stockName = stockName, shares = shares, material = material });
     }
 
     public void RemoveBobaFromPlay(BobaEntity entity)
@@ -89,7 +89,7 @@ public class BobaStockManager : MonoBehaviour
                 while (i < diff)
                 {
                     int shares = Mathf.Min(splitAmount, diff - i);
-                    bobaStockToSpawn.Push(new BobaStockToSpawn { stockName = stock.Name, shares = shares });
+                    bobaStockToSpawn.Push(new BobaStockToSpawn { stockName = stock.Name, shares = shares, material = stock.Material });
                     i += shares;
                 }
             }
@@ -114,6 +114,7 @@ public class BobaStockManager : MonoBehaviour
             bobaEntity.setShares(stock.shares);
             var bobaRenderer = boba.GetComponent<MeshRenderer>();
             bobaRenderer.material = stock.material;
+            bobaEntity.SetupScale();
             if (sharesInPlay.ContainsKey(stock.stockName))
             {
                 sharesInPlay[stock.stockName] += stock.shares;

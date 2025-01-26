@@ -73,6 +73,10 @@ public class StockSimulation : MonoBehaviour
     public void BuyStock(string stock, int player = 1)
     {
         var currentStock = GetStock(stock);
+        if (currentStock == null)
+        {
+            return;
+        }
         var proportion = (1f / currentStock.TotalShares);
         var bonus = 1 + proportion * (1f + UnityEngine.Random.value * currentStock.Volatility);
         currentStock.Price *= bonus;
@@ -91,6 +95,10 @@ public class StockSimulation : MonoBehaviour
     public void SellStock(string stock, int player = 1)
     {
         var currentStock = GetStock(stock);
+        if (currentStock == null)
+        {
+            return;
+        }
         if (portfolios[player - 1].ContainsKey(stock))
         {
             currentMoney[player - 1] += currentStock.Price;

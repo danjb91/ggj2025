@@ -23,6 +23,11 @@ public class BobaEntity : MonoBehaviour
         
     }
 
+    public void SetupScale()
+    {
+        transform.localScale *= shares / 10f;
+    }
+
     // Update is called once per frame
     void Update()
     {
