@@ -54,7 +54,7 @@
 			<destination>{6124d2cc-af32-4aa3-b17d-f69c4602dccf}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{6d2c7a3a-3999-4136-a664-220de207b98a}</destination>
+			<destination>{0697e753-ecfd-4df6-8f5a-678b916f26d9}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{711dd024-f351-45cd-aa3b-4ac97d7f8b10}" />
@@ -114,7 +114,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{e36455eb-6818-4fce-a7a7-64b009feb167}">
 		<property name="volume">
-			<value>-2</value>
+			<value>-1</value>
 		</property>
 		<property name="name">
 			<value>Stirring_loop</value>

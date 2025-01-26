@@ -109,6 +109,9 @@
 		<property name="volume">
 			<value>3</value>
 		</property>
+		<property name="playlistMode">
+			<value>1</value>
+		</property>
 		<relationship name="automators">
 			<destination>{7ae59753-c048-440c-bfa5-13d70df9bea9}</destination>
 		</relationship>
@@ -237,10 +240,10 @@
 	<object class="MixerBusFader" id="{da4f6e4b-5b44-47c0-bff6-7fe378c31bb7}" />
 	<object class="AutomationPoint" id="{31efe2fb-9973-4811-88c3-7d15a4cfe3b3}">
 		<property name="position">
-			<value>2.0083198707592889</value>
+			<value>1.875</value>
 		</property>
 		<property name="value">
-			<value>7</value>
+			<value>4</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{66d9c0fc-14e8-43ac-ab85-33b164283f7b}">
