@@ -35,7 +35,7 @@ public class PrefabPool : MonoBehaviour
 	private GameObject OnCreatePooledItem()
     {
         GameObject spawnedPrefab = GameObject.Instantiate(pooledPrefab);
-		spawnedPrefab.transform.SetParent(this.transform);
+		spawnedPrefab.transform.SetParent(this.transform, false);
 		return spawnedPrefab;
     }
  	
