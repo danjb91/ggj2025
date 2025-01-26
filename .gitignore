@@ -78,3 +78,5 @@ crashlytics-build.properties
 # Food
 Assets/Plugins/FMOD/Cache/**/*
 fmod_editor.log
+Assets/StreamingAssets/*.bank
+Assets/StreamingAssets/*.bank.meta
