@@ -13,7 +13,6 @@ public class StrawScaleManager : MonoBehaviour
     {
         float money = Mathf.Max(minMoneyRange, (float)GameManager.Instance.stockSim.currentMoney[owner]);
         float moneyRatio = money / maxMoneyRange;
-        Debug.Log("Owner " + owner + " has money " + money);
         float scale = minScale + (maxScale - minScale) * moneyRatio;
 
         gameObject.transform.localScale = new Vector3(scale, gameObject.transform.localScale.y, scale);
