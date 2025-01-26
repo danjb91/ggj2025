@@ -168,7 +168,8 @@ public class StockSimulation : MonoBehaviour
             }
         }
 
-        OnSimulationTick();
+        if (OnSimulationTick != null)
+            OnSimulationTick();
 
         var stocksToRemove = CurrentStocks.Where(s => s.Price <= 0).ToList();
         foreach (var stock in stocksToRemove)

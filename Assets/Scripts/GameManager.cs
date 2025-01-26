@@ -1,4 +1,5 @@
 using Unity.VisualScripting;
+using TMPro;
 using UnityEngine;
 
 public enum GameState
@@ -14,6 +15,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    public TMP_Text TextDisplay;
+
     private GameState _gameState = GameState.START;
     public GameState gameState
     {
@@ -23,7 +26,7 @@ public class GameManager : MonoBehaviour
             _gameState = value;
         }
     }
-    public const float quarterLength = 60f;
+    public const float quarterLength = 30f;
     public const float quarterBreakLength = 10f;
     public const float prepLength = 5f;
     public const float resultLength = 10f;
@@ -54,8 +57,16 @@ public class GameManager : MonoBehaviour
                 timeLeft = quarterLength;
                 break;
             case GameState.PLAY:
-                gameState = GameState.QUARTER_END;
-                timeLeft = quarterBreakLength;
+                gameState = GameState.GAME_END;
+                timeLeft = resultLength;
+
+                int p1Value = stockSim.GetTotalPortfolio(1);
+                int p2Value = stockSim.GetTotalPortfolio(2);
+                playerWinner = p1Value > p2Value ? 1 : 2;
+                if(p1Value == p2Value)
+                    playerWinner = 3;
+                //gameState = GameState.QUARTER_END;
+                //timeLeft = quarterBreakLength;
                 break;
             case GameState.QUARTER_END:
                 {
@@ -83,6 +94,37 @@ public class GameManager : MonoBehaviour
         else
         {
             GoToNextState();
+        }
+
+        if(TextDisplay != null)
+        {
+            string text = "";
+            switch(gameState){
+                case GameState.PREP:
+                    text = "Get Ready!";
+                    break;
+                case GameState.PLAY:
+                    text = "";
+                    break;
+                case GameState.GAME_END:
+                    switch(playerWinner)
+                    {
+                        case 1:
+                            text = "Player 1 Won!";
+                            break;
+                        case 2:
+                            text = "Player 2 Won!";
+                            break;
+                        case 3:
+                            text = "Tie!";
+                            break;
+                    }
+                    break;
+
+            }
+            text += $" {timeLeft:0.0}";
+
+            TextDisplay.text = text;
         }
     }
 

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5537104957820345428}
   - component: {fileID: 4380616561807392918}
   - component: {fileID: 2482952138658086510}
+  - component: {fileID: 7947895002707091394}
   m_Layer: 6
   m_Name: Bubble
   m_TagString: Bubble
@@ -151,3 +152,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shares: 1
   stock: 
+--- !u!114 &7947895002707091394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288856873480723935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2068494228
+      Data2: 1119364986
+      Data3: -103807313
+      Data4: -1615988098
+    Path: event:/SFX/sfx_SpawnBubble
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

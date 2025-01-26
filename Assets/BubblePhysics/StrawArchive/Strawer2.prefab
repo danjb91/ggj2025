@@ -585,6 +585,7 @@ GameObject:
   - component: {fileID: 6334094907706244628}
   - component: {fileID: 8888972164382782657}
   - component: {fileID: 1880809892261734312}
+  - component: {fileID: 5173737639064788354}
   m_Layer: 0
   m_Name: Suckerr
   m_TagString: Untagged
@@ -642,6 +643,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   succForce: 100
   succButton: succ2
+  succSoundEvent: {fileID: 5173737639064788354}
+--- !u!114 &5173737639064788354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2949891164101126324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -653896251
+      Data2: 1323726190
+      Data3: 1781139371
+      Data4: -242324771
+    Path: event:/SFX/sfx_Suction_Light
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &3766854997481586069
 GameObject:
   m_ObjectHideFlags: 0
